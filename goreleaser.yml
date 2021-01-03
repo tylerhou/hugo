@@ -69,6 +69,8 @@ builds:
       - darwin
     goarch:
       - amd64
+    ignore:
+      - goos: darwin
   - binary: hugo
     id: hugo_extended_linux
     ldflags: -s -w -X github.com/gohugoio/hugo/common/hugo.buildDate={{.Date}} -X github.com/gohugoio/hugo/common/hugo.commitHash={{ .ShortCommit }}
@@ -146,7 +148,7 @@ nfpms:
     maintainer: "Bjørn Erik Pedersen <bjorn.erik.pedersen@gmail.com>"
     description: "A Fast and Flexible Static Site Generator built with love in GoLang."
     license: "Apache 2.0"
-    name_template: "{{.ProjectName}}_{{.Version}}_{{.Os}}-{{.Arch}}"
+    file_name_template: "{{.ProjectName}}_{{.Version}}_{{.Os}}-{{.Arch}}"
     replacements:
       amd64: 64bit
       386: 32bit
@@ -169,7 +171,7 @@ nfpms:
     maintainer: "Bjørn Erik Pedersen <bjorn.erik.pedersen@gmail.com>"
     description: "A Fast and Flexible Static Site Generator built with love in GoLang."
     license: "Apache 2.0"
-    name_template: "{{.ProjectName}}_extended_{{.Version}}_{{.Os}}-{{.Arch}}"
+    file_name_template: "{{.ProjectName}}_extended_{{.Version}}_{{.Os}}-{{.Arch}}"
     replacements:
       amd64: 64bit
       386: 32bit
